@@ -35,11 +35,12 @@ ActiveRecord::Schema.define(version: 2022_02_01_160132) do
 
   create_table "npcs", force: :cascade do |t|
     t.string "name"
+    t.text "description"
     t.integer "armor_class"
     t.integer "hit_points"
     t.string "hit_dice"
     t.integer "speed"
-    t.string "Senses"
+    t.string "senses"
     t.string "languages"
     t.string "challenge"
     t.datetime "created_at", precision: 6, null: false

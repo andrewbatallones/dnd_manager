@@ -7,3 +7,10 @@
 bob:
   name: Bob
   description: His name is Bob
+  armor_class: 15
+  hit_points: 100
+  hit_dice: 1d1 +99
+  speed: 30
+  senses: Taste,Smell
+  languages: English,Spanish
+  challenge: 1xp

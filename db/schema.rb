@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_02_01_160132) do
+ActiveRecord::Schema.define(version: 2022_02_07_143123) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_160132) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "users_id"
+    t.bigint "users_id", null: false
     t.index ["users_id"], name: "index_campaigns_on_users_id"
   end
 
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_160132) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "regions_id"
+    t.bigint "regions_id", null: false
     t.index ["regions_id"], name: "index_cities_on_regions_id"
   end
 
@@ -45,7 +45,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_160132) do
     t.string "challenge"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "regions_id"
+    t.bigint "regions_id", null: false
     t.bigint "cities_id"
     t.index ["cities_id"], name: "index_npcs_on_cities_id"
     t.index ["regions_id"], name: "index_npcs_on_regions_id"
@@ -56,7 +56,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_160132) do
     t.text "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.bigint "campaigns_id"
+    t.bigint "campaigns_id", null: false
     t.index ["campaigns_id"], name: "index_regions_on_campaigns_id"
   end
 
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(version: 2022_02_01_160132) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "campaigns", "users", column: "users_id"
   add_foreign_key "cities", "regions", column: "regions_id"
   add_foreign_key "npcs", "regions", column: "regions_id"
   add_foreign_key "regions", "campaigns", column: "campaigns_id"

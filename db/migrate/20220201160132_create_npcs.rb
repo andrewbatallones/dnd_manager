@@ -13,8 +13,5 @@ class CreateNpcs < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-
-    add_reference :npcs, :regions, foreign_key: true
-    add_reference :npcs, :cities
   end
 end

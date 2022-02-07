@@ -6,7 +6,5 @@ class CreateCampaigns < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-
-    add_reference :campaigns, :users
   end
 end

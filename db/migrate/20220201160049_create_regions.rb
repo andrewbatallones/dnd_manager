@@ -6,7 +6,5 @@ class CreateRegions < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
-
-    add_reference :regions, :campaigns, foreign_key: true
   end
 end
